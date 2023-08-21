@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.btn-primary {
+  @apply bg-black text-white rounded-md text-sm sm:text-lg font-semibold transition-all duration-200 px-3 py-1 sm:px-6 sm:py-2;
+}
+.btn-primary:hover {
+  @apply bg-primary;
+}
+.btn-danger {
+  @apply bg-red-700 text-white rounded-md text-sm sm:text-lg font-semibold transition-all duration-200 px-3 py-1 sm:px-6 sm:py-2;
+}
+.btn-danger:hover {
+  @apply bg-red-900;
+}
+.smooth {
+  @apply transition duration-200;
+}
+.head {
+  @apply text-lg sm:text-xl md:text-3xl  font-bold;
+}
+.paragraph {
+  @apply text-sm sm:text-base text-secondary;
+}
+.asidenav {
+  left: -70%;
+  transition: all ease-in-out 1s;
+}
+.visiblenav {
+  left: 0%;
+}
+.filter {
+  left: -100%;
+  transition: all ease-in-out 1s;
+}
+.visiblefilter {
+  left: 0%;
+}
+.swiper {
+  width: 100%;
+  height: 50vh;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+body {
+  /* height: 3000px; */
+  overflow-x: hidden;
+}
+input[type='radio'] {
+  display: none;
+}
+.sale-image {
+  background-image: url('../../public/sale.jpg');
+}
+.hero-landing {
+  background-image: url('../../public/hero-landing.jpg');
+}
+.container {
+  max-width: 1140px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  box-sizing: content-box;
+  display: block;
+}
+@media (max-width: 575.98px) {
+  .container {
+    max-width: 90%;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  /* -webkit-appearance: none; */
+  visibility: hidden;
+  margin: 0;
+}
+
+.profile_link_container .profile_link:not(:last-child),
+.table .table-body tr:not(:last-child) {
+  @apply border-b-2 border-gray-200;
+}
