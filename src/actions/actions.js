@@ -1,8 +1,8 @@
 export const DETECT_NAVBAR = 'DETECT_NAVBAR';
-export const ADD_PRODUCT = 'ADD_PRODUCT';
-export const REMOVE_PRODUCT = 'REMOVE_PRODUCT';
-export const UPDATE_CART = 'UPDATE_CART';
-export const CALCULATE_TOTALS = 'CALCULATE_TOTALS';
+export const ADD_TO_CART = 'ADD_TO_CART';
+export const REMOVE_CART_ITEM = 'REMOVE_CART_ITEM';
+export const TOGGLE_CART_ITEM_AMOUNT = 'TOGGLE_CART_ITEM_AMOUNT';
+export const COUNT_CART_TOTALS = 'COUNT_CART_TOTALS';
 
 // User
 export const ADD_USER = 'ADD_USER';

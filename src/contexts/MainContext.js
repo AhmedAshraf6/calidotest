@@ -14,6 +14,10 @@ import {
   CHANGE_SHPPING_DETAIL,
   CLEAR_SHPPING_DETAIL,
   HANDLE_CHANGE_SHIPPING,
+  ADD_TO_CART,
+  REMOVE_CART_ITEM,
+  TOGGLE_CART_ITEM_AMOUNT,
+  COUNT_CART_TOTALS,
 } from '@/actions/actions';
 import Cookies from 'js-cookie';
 import { toast } from 'react-toastify';
@@ -28,11 +32,9 @@ const intialState = {
     country: '',
   },
   isEditing: false,
-  productsData: [],
   cart: [],
-  itemsInCart: [],
-  total: 0,
-  amount: 0,
+  total_items: 0,
+  total_amount: 0,
 };
 export default function MainProvider({ children }) {
   const [state, dispatch] = useReducer(MainReducer, intialState);
@@ -87,21 +89,21 @@ export default function MainProvider({ children }) {
   };
 
   // Products Operation
-  const addProduct = (id) => {
-    dispatch({ type: ADD_PRODUCT, payload: id });
+  const addToCart = (id, amount, product) => {
+    dispatch({ type: ADD_TO_CART, payload: { id, amount, product } });
   };
-  const removeProduct = (id) => {
-    dispatch({ type: REMOVE_PRODUCT, payload: id });
+  const updateCart = (id, value) => {
+    dispatch({ type: TOGGLE_CART_ITEM_AMOUNT, payload: { id, value } });
   };
-  const updateCart = (id, amount) => {
-    dispatch({ type: UPDATE_CARD, payload: id, payload2: amount });
+  const removeFromCart = (id) => {
+    dispatch({ type: REMOVE_CART_ITEM, payload: id });
   };
 
   useEffect(() => {
     UpdateUserContext();
   }, []);
   useEffect(() => {
-    dispatch({ type: CALCULATE_TOTALS });
+    dispatch({ type: COUNT_CART_TOTALS });
   }, [state.cart]);
   return (
     <MainContext.Provider
@@ -114,6 +116,9 @@ export default function MainProvider({ children }) {
         editShippingDetails,
         clearShippingDetails,
         handleChangeShipping,
+        addToCart,
+        updateCart,
+        removeFromCart,
       }}
     >
       {children}
